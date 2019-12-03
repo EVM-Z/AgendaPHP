@@ -3,6 +3,8 @@
 :root {
     --primario: #C2185B;
     --secundario: #FFC107;
+    --fuentePrimaria: 'Arial', Helvetica, sans-serif;
+    --fuenteSecundaria: 'Poppins', sans-serif;
 }
 
 html {
@@ -17,6 +19,7 @@ html {
 
 body {
     background-color: var(--primario);
+    font-family: var(--fuentePrimaria);
 }
 
 .contenedor {
@@ -32,4 +35,33 @@ body {
     -webkit-box-shadow: 0px 6px 14px -4px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 6px 14px -4px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 6px 14px -4px rgba(0, 0, 0, 0.75);
+}
+
+h1,
+h2 {
+    font-family: var(--fuenteSecundaria);
+    text-align: center;
+    margin: 0;
+}
+
+
+/* Formulario */
+
+form {
+    padding: 3rem;
+    margin-top: 2rem;
+}
+
+form legend {
+    font-family: var(--fuenteSecundaria);
+    font-size: 2rem;
+    text-align: center;
+}
+
+legend span {
+    font-size: 1rem;
+    margin-top: 1rem;
+    /* Salto de linea */
+    clear: both;
+    display: block;
 }
