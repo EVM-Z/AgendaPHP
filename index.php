@@ -6,7 +6,7 @@
 
 <div class="bg-amarillo contenedor sombra">
     <form action="#" id="contacto">
-        <legend>Añada un contacto <span>Todos los campos son obligatorios</span> </legend>
+        <legend>Añada un contacto<span>Todos los campos son obligatorios</span></legend>
         <div class="campos">
             <div class="campo">
                 <label for="nombre">Nombre:</label>
@@ -22,9 +22,11 @@
                 <label for="telefono">Teléfono:</label>
                 <input type="tel" placeholder="Numero Telefonico" id="telefono">
             </div>
-            <div class="campo-enviar">
-                <input type="submit" value="Añadir">
-            </div>
+            
+        </div>
+
+        <div class="campo enviar">
+            <input type="submit" value="Añadir">
         </div>
     </form>
 </div>
