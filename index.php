@@ -5,7 +5,7 @@
 </div>
 
 <div class="bg-amarillo contenedor sombra">
-    <form action="#" id="contacto">
+    <form id="contacto" action="#">
         <legend>Añada un contacto<span>Todos los campos son obligatorios</span></legend>
             <?php include 'inc/layout/formulario.php'; ?>
     </form>
