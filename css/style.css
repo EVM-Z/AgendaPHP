@@ -3,8 +3,8 @@
 :root {
     --primario: #C2185B;
     --secundario: #FFC107;
-    --primarioOscuro: rgb(156, 10, 69);
-    --fuentePrimaria: 'Arial', Helvetica, sans-serif;
+    <<<<<<< HEAD --primarioOscuro: rgb(156, 10, 69);
+    =======>>>>>>>ee4b6cb5e599edbd6259976b8a9887e8e94db5b9 --fuentePrimaria: 'Arial', Helvetica, sans-serif;
     --fuenteSecundaria: 'Poppins', sans-serif;
 }
 
