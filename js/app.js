@@ -7,8 +7,6 @@ function eventListeners() {
     formularioContactos.addEventListener('submit', leerFormulario);
 }
 
-
-
 function leerFormulario(e) {
     e.preventDefault();
 
@@ -18,8 +16,31 @@ function leerFormulario(e) {
         telefono = document.querySelector('#telefono').value;
 
     if (nombre === '' || empresa === '' || telefono === '') {
-        console.log('El campo esta vacio');
+        // 2 parametros: texto y clase
+        mostrarNotificacion('Todos los campos son obligatorios', 'error');
     } else {
         console.log('Tiene algo');
     }
+}
+
+// Notificacion en Pantalla
+function mostrarNotificacion(mensaje, clase) {
+    const notificacion = document.createElement('div');
+    notificacion.classList.add(clase, 'notificacion', 'sombra');
+    notificacion.textContent = mensaje;
+
+    // Formulario
+    formularioContactos.insertBefore(notificacion, document.querySelector('form legend'));
+
+    // Ocultar y Mostrar la notificacion
+    setTimeout(() => {
+        notificacion.classList.add('visible');
+        setTimeout(() => {
+            notificacion.classList.remove('visible');
+            // Eliminamos el elemento del DOM
+            setTimeout(() => {
+                notificacion.remove();
+            }, 500);
+        }, 3000);
+    }, 100);
 }
