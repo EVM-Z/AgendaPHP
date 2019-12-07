@@ -42,7 +42,7 @@ function leerFormulario(e) {
 // Insertar en la base de datos via Ajax
 function insertarBD(datos) {
     // Llamando a ajax
-    // Ceear el objeto
+    // Crear el objeto
     const xhr = new XMLHttpRequest();
     // Abrir la conexion
     xhr.open('POST', 'inc/modelos/modelo-contactos.php', true);
