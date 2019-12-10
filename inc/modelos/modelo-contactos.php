@@ -22,7 +22,7 @@
                         'empresa'=>$empresa,
                         'telefono'=>$telefono,
                         'id_insertado'=>$stmt->insert_id
-                    );
+                    )
                 );
             }
             $stmt->close();
