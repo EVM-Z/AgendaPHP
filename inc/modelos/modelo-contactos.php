@@ -2,7 +2,6 @@
     if($_POST['accion']=='crear'){
         // Creara un nuevo registro en la base de datos
         require_once('../funciones/db.php');
-        
         // Validar la sentradas
         $nombre=filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
         $empresa=filter_var($_POST['empresa'], FILTER_SANITIZE_STRING);
