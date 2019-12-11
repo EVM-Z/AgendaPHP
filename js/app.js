@@ -83,7 +83,7 @@ function insertarBD(datos) {
                 iconoEliminar.classList.add('fas', 'fa-trash-alt');
 
                 // Crear el boton de eliminar
-                const btnEliminar = document.createElement('button');
+                const btnEliminar = document.createElement('a');
                 btnEliminar.appendChild(iconoEliminar);
                 btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
 
