@@ -2,7 +2,7 @@
     if($_POST['accion']=='crear'){
         // Creara un nuevo registro en la base de datos
         require_once('../funciones/db.php');
-        // Validar la sentradas
+        // Validar las entradas
         $nombre=filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
         $empresa=filter_var($_POST['empresa'], FILTER_SANITIZE_STRING);
         $telefono=filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
@@ -27,11 +27,15 @@
             $stmt->close();
             $conn->close();
         }
-        catch(Exception $e){
+        catch(Exception $e){ 
             $respuesta=array(
                 'error'=>$e->getMessage()
             );
         }
         echo json_encode($respuesta);
+    }
+
+    if($_GET['accion']=='borrar'){
+        echo json_encode($_GET);
     }
 ?>
