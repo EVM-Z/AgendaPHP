@@ -1,4 +1,17 @@
-<?php include 'inc/layout/header.php'; ?>
+<?php 
+    include 'inc/funciones/funciones.php';
+    include 'inc/layout/header.php';
+
+    // Convierte a int el string que manda como resultado
+    $id=filter_var($_GET['id'], FILTER_VALIDATE_INT);
+    // Si no existe en $id
+    if (!$id) {
+        die('No es válido');
+    }
+    $resultado=obtenerContacto($id);
+    $contacto=$resultado->fetch_assoc();
+?>
+
 
 <div class="contenedor-barra">
     <div class="contenedor barra">
