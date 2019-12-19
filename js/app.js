@@ -16,6 +16,8 @@ function eventListeners() {
     // Buscador
     inputBuscador.addEventListener('input', buscarContactos);
 
+    numeroContactos();
+
 }
 
 function leerFormulario(e) {
@@ -114,6 +116,9 @@ function insertarBD(datos) {
 
                 // Mostrar la notificacion
                 mostrarNotificacion('Contacto Creado Correctamente', 'correcto');
+
+                // Actualiza el numero de contactos
+                numeroContactos();
             }
         }
         // Enviar los datos
@@ -177,6 +182,8 @@ function eliminarContacto(e) {
                             e.target.parentElement.parentElement.parentElement.remove();
                             // Mostrar notificaciones
                             mostrarNotificacion('Contacto eliminado', 'correcto');
+                            // Actualiza el numero de contactos
+                            numeroContactos();
                         } else {
                             mostrarNotificacion('Hubo un error', 'error');
                         }
@@ -216,6 +223,7 @@ function mostrarNotificacion(mensaje, clase) {
     }, 100);
 }
 
+// Buscador de contactos
 function buscarContactos(e) {
     const expresion = new RegExp(e.target.value, "i"),
         registros = document.querySelectorAll('tbody tr');
@@ -226,5 +234,20 @@ function buscarContactos(e) {
         if (registro.childNodes[1].textContent.replace(/\s/g, " ").search(expresion) != -1) {
             registro.style.display = 'table-row';
         }
+        numeroContactos();
     })
+}
+
+// Muestra el numero de contactos
+function numeroContactos() {
+    const totalContactos = document.querySelectorAll('tbody tr'),
+        contenedorNumero = document.querySelector('.total-contactos span');
+    let total = 0;
+    totalContactos.forEach(contacto => {
+        if (contacto.style.display === '' || contacto.style.display === 'table-row') {
+            total++;
+        }
+    });
+    // console.log(total);
+    contenedorNumero.textContent = total;
 }
