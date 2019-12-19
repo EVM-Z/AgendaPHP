@@ -34,14 +34,17 @@ function leerFormulario(e) {
         infoContacto.append('telefono', telefono);
         infoContacto.append('accion', accion);
 
-        console.log(...infoContacto);
+        // console.log(...infoContacto);
 
         if (accion === 'crear') {
             // Creamos un nuevo elemento
             insertarBD(infoContacto);
         } else {
             // Editar el contacto
-
+            // Leer el id
+            const idRegistro = document.querySelector('#id').value;
+            infoContacto.append('id', idRegistro);
+            actualizarRegistro(infoContacto);
         }
     }
 }
@@ -113,6 +116,34 @@ function insertarBD(datos) {
     xhr.send(datos);
 }
 
+function actualizarRegistro(datos) {
+    // console.log(...datos);
+    // Crear el objeto
+    const xhr = new XMLHttpRequest();
+    // Abrir la conexion
+    xhr.open('POST', 'inc/modelos/modelo-contactos.php', true);
+    // Leer la respuesta
+    xhr.onload = function() {
+            if (this.status === 200) {
+                const respuesta = JSON.parse(xhr.responseText);
+                console.log(respuesta);
+                if (respuesta.respuesta === 'correcto') {
+                    // Mostrar notificacion
+                    mostrarNotificacion('Contacto Editado Correctamente', 'correcto');
+                } else {
+                    // Un error
+                    mostrarNotificacion('Error', 'error');
+                }
+                // Despues de 3 segundos redireccionar
+                setTimeout(() => {
+                    window.location.href = 'index.php';
+                }, 3000);
+            }
+        }
+        // Enviar los datos
+    xhr.send(datos);
+}
+
 // Eliminar el contacto
 function eliminarContacto(e) {
     // Muestras true cuando le damos al icono de borrar
@@ -145,7 +176,10 @@ function eliminarContacto(e) {
                         } else {
                             mostrarNotificacion('Hubo un error', 'error');
                         }
-
+                        // Despues de 3 segundos redirecionar
+                        setTimeout(() => {
+                            window.location.href = 'index.php';
+                        }, 4000);
                     }
                 }
                 // Enviar la peticion
